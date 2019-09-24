@@ -36,4 +36,17 @@ public class NavigationSeleniumTests {
         assertEquals("Games Menu", title.getText());
     }
 
+    @Test
+    public void navHometoPMTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/HomePage.html");
+        Thread.sleep(1000);
+
+        WebElement gmButton = driver.findElementById("pmButton");
+        gmButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("Publisher Menu", title.getText());
+    }
 }
