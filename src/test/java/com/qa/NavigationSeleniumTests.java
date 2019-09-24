@@ -49,4 +49,18 @@ public class NavigationSeleniumTests {
         WebElement title = driver.findElementById("pageTitle");
         assertEquals("Publisher Menu", title.getText());
     }
+
+    @Test
+    public void navGMtoAGTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/GameMenu.html");
+        Thread.sleep(1000);
+
+        WebElement gmButton = driver.findElementById("agButton");
+        gmButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("Add Game to Library", title.getText());
+    }
 }
