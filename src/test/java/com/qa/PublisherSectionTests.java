@@ -68,4 +68,24 @@ public class PublisherSectionTests {
         WebElement firstRow =  driver.findElementByXPath("//*[@id=\"publisherTable\"]/tr[1]/td[2]");
         assertEquals("Bethesda", firstRow.getText());
     }
+
+    @Test
+    public void crudDeletePublisherTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/DisplayPublishers.html");
+        Thread.sleep(1000);
+
+        String nextValue = (driver.findElementByXPath("//*[@id=\"publisherTable\"]/tr[2]/td[2]")).getText();
+        WebElement deleteButton =  driver.findElementByXPath("//*[@id=\"publisherTable\"]/tr[1]/td[6]/button");
+        deleteButton.click();
+
+        Thread.sleep(1000);
+
+        driver.switchTo().alert().accept();
+
+        Thread.sleep(1000);
+
+        WebElement firstRow =  driver.findElementByXPath("//*[@id=\"publisherTable\"]/tr[1]/td[2]");
+        assertEquals(nextValue, firstRow.getText());
+    }
 }
