@@ -134,5 +134,17 @@ public class NavigationSeleniumTests {
         assertEquals("Displaying All Games", title.getText());
     }
 
+    @Test
+    public void navPMtoAPTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/PublisherMenu.html");
+        Thread.sleep(1000);
 
+        WebElement apButton = driver.findElementById("apButton");
+        apButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("Add Publisher to Library", title.getText());
+    }
 }
