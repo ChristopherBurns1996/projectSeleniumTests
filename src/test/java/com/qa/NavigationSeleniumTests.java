@@ -232,4 +232,17 @@ public class NavigationSeleniumTests {
         assertEquals("1337Library", title.getText());
     }
 
+    @Test
+    public void navPMtoMMTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/PublisherMenu.html");
+        Thread.sleep(1000);
+
+        WebElement mmButton = driver.findElementById("mmButton");
+        mmButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("1337Library", title.getText());
+    }
 }
