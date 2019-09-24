@@ -217,4 +217,19 @@ public class NavigationSeleniumTests {
         WebElement title = driver.findElementById("pageTitle");
         assertEquals("Displaying All Publishers", title.getText());
     }
+
+    @Test
+    public void navGMtoMMTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/GameMenu.html");
+        Thread.sleep(1000);
+
+        WebElement mmButton = driver.findElementById("mmButton");
+        mmButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("1337Library", title.getText());
+    }
+
 }
