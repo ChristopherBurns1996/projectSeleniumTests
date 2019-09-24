@@ -45,4 +45,27 @@ public class PublisherSectionTests {
         WebElement lastRow =  driver.findElementByXPath("//*[@id=\"publisherTable\"]/tr[last()]/td[2]");
         assertEquals("Bungie", lastRow.getText());
     }
+
+    @Test
+    public void crudUpdatePublisherTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/DisplayPublishers.html");
+        Thread.sleep(1000);
+
+        WebElement updateButton =  driver.findElementByXPath("//*[@id=\"publisherTable\"]/tr[1]/td[5]/button");
+        updateButton.click();
+
+        WebElement pn = driver.findElementById("publisherName");
+        pn.sendKeys("Bethesda");
+        WebElement ceo = driver.findElementById("currentCEO");
+        ceo.sendKeys("Todd Howard");
+        WebElement ye = driver.findElementById("yearEstablished");
+        ye.sendKeys("2007");
+        WebElement submitbutton = driver.findElementById("upSubmit");
+        submitbutton.click();
+        Thread.sleep(1000);
+
+        WebElement firstRow =  driver.findElementByXPath("//*[@id=\"publisherTable\"]/tr[1]/td[2]");
+        assertEquals("Bethesda", firstRow.getText());
+    }
 }
