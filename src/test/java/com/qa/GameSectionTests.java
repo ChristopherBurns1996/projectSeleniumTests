@@ -23,7 +23,7 @@ public class GameSectionTests {
     }
 
     @Test
-    public void crudAddGameTest() throws InterruptedException {
+    public void crudAddandReadGameTest() throws InterruptedException {
         driver.manage().window().maximize();
         driver.get("http://34.89.59.112/AddGame.html");
         Thread.sleep(1000);
@@ -46,5 +46,31 @@ public class GameSectionTests {
 
         WebElement lastRow =  driver.findElementByXPath("//*[@id=\"gameTable\"]/tr[last()]/td[2]");
         assertEquals("Runescape", lastRow.getText());
+
+    }
+
+    @Test
+    public void crudUpdateGameTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/DisplayGames.html");
+        Thread.sleep(1000);
+
+        WebElement updateButton =  driver.findElementByXPath("//*[@id=\"gameTable\"]/tr[1]/td[6]/button");
+        updateButton.click();
+
+        WebElement gn = driver.findElementById("gameName");
+        gn.sendKeys("Call of Duty: Modern Warfare");
+        WebElement gpub = driver.findElementById("publisher");
+        gpub.sendKeys("Activision");
+        WebElement gplat = driver.findElementById("platform");
+        gplat.sendKeys("Multi-Platform");
+        WebElement gyor = driver.findElementById("yearOfRelease");
+        gyor.sendKeys("2007");
+        WebElement submitbutton = driver.findElementById("ugSubmit");
+        submitbutton.click();
+        Thread.sleep(1000);
+
+        WebElement firstRow =  driver.findElementByXPath("//*[@id=\"gameTable\"]/tr[1]/td[2]");
+        assertEquals("Call of Duty: Modern Warfare", firstRow.getText());
     }
 }
