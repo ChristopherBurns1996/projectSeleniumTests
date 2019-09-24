@@ -73,4 +73,24 @@ public class GameSectionTests {
         WebElement firstRow =  driver.findElementByXPath("//*[@id=\"gameTable\"]/tr[1]/td[2]");
         assertEquals("Call of Duty: Modern Warfare", firstRow.getText());
     }
+
+    @Test
+    public void crudDeleteGameTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/DisplayGames.html");
+        Thread.sleep(1000);
+
+        String nextValue = (driver.findElementByXPath("//*[@id=\"gameTable\"]/tr[2]/td[2]")).getText();
+        WebElement deleteButton =  driver.findElementByXPath("//*[@id=\"gameTable\"]/tr[1]/td[7]/button");
+        deleteButton.click();
+
+        Thread.sleep(1000);
+
+        driver.switchTo().alert().accept();
+
+        Thread.sleep(1000);
+
+        WebElement firstRow =  driver.findElementByXPath("//*[@id=\"gameTable\"]/tr[1]/td[2]");
+        assertEquals(nextValue, firstRow.getText());
+    }
 }
