@@ -175,4 +175,18 @@ public class NavigationSeleniumTests {
         WebElement title = driver.findElementById("pageTitle");
         assertEquals("Displaying All Publishers", title.getText());
     }
+
+    @Test
+    public void navDPtoPMTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/DisplayPublishers.html");
+        Thread.sleep(1000);
+
+        WebElement pmButton = driver.findElementById("pmButton");
+        pmButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("Publisher Menu", title.getText());
+    }
 }
