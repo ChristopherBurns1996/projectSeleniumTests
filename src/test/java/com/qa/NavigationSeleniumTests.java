@@ -189,4 +189,18 @@ public class NavigationSeleniumTests {
         WebElement title = driver.findElementById("pageTitle");
         assertEquals("Publisher Menu", title.getText());
     }
+
+    @Test
+    public void navDPtoUPTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/DisplayPublishers.html");
+        Thread.sleep(1000);
+
+        WebElement upButton = driver.findElementByXPath("//*[@id=\"publisherTable\"]/tr[1]/td[5]/button");
+        upButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("Update Publisher Information", title.getText());
+    }
 }
