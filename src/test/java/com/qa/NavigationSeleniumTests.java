@@ -203,4 +203,18 @@ public class NavigationSeleniumTests {
         WebElement title = driver.findElementById("pageTitle");
         assertEquals("Update Publisher Information", title.getText());
     }
+
+    @Test
+    public void navUPtoDPTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/UpdatePublisher.html?publisherid=13");
+        Thread.sleep(1000);
+
+        WebElement dpButton = driver.findElementById("dpButton");
+        dpButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("Displaying All Publishers", title.getText());
+    }
 }
