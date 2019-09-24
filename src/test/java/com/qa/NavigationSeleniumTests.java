@@ -42,8 +42,8 @@ public class NavigationSeleniumTests {
         driver.get("http://34.89.59.112/HomePage.html");
         Thread.sleep(1000);
 
-        WebElement gmButton = driver.findElementById("pmButton");
-        gmButton.click();
+        WebElement pmButton = driver.findElementById("pmButton");
+        pmButton.click();
         Thread.sleep(1000);
 
         WebElement title = driver.findElementById("pageTitle");
@@ -56,8 +56,8 @@ public class NavigationSeleniumTests {
         driver.get("http://34.89.59.112/GameMenu.html");
         Thread.sleep(1000);
 
-        WebElement gmButton = driver.findElementById("agButton");
-        gmButton.click();
+        WebElement agButton = driver.findElementById("agButton");
+        agButton.click();
         Thread.sleep(1000);
 
         WebElement title = driver.findElementById("pageTitle");
@@ -84,8 +84,8 @@ public class NavigationSeleniumTests {
         driver.get("http://34.89.59.112/GameMenu.html");
         Thread.sleep(1000);
 
-        WebElement gmButton = driver.findElementById("dgButton");
-        gmButton.click();
+        WebElement dgButton = driver.findElementById("dgButton");
+        dgButton.click();
         Thread.sleep(1000);
 
         WebElement title = driver.findElementById("pageTitle");
@@ -104,6 +104,20 @@ public class NavigationSeleniumTests {
 
         WebElement title = driver.findElementById("pageTitle");
         assertEquals("Games Menu", title.getText());
+    }
+
+    @Test
+    public void navDGtoUGTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/DisplayGames.html");
+        Thread.sleep(1000);
+
+        WebElement ugButton = driver.findElementByXPath("//*[@id=\"gameTable\"]/tr/td[6]/button");
+        ugButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("Update Game Information", title.getText());
     }
 
 }
