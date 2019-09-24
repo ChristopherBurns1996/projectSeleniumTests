@@ -120,4 +120,19 @@ public class NavigationSeleniumTests {
         assertEquals("Update Game Information", title.getText());
     }
 
+    @Test
+    public void navUGtoDGTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get("http://34.89.59.112/UpdateGame.html?gameid=2");
+        Thread.sleep(1000);
+
+        WebElement dgButton = driver.findElementById("dgButton");
+        dgButton.click();
+        Thread.sleep(1000);
+
+        WebElement title = driver.findElementById("pageTitle");
+        assertEquals("Displaying All Games", title.getText());
+    }
+
+
 }
