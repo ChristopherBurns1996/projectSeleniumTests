@@ -46,7 +46,6 @@ public class GameSectionTests {
 
         WebElement lastRow =  driver.findElementByXPath("//*[@id=\"gameTable\"]/tr[last()]/td[2]");
         assertEquals("Runescape", lastRow.getText());
-
     }
 
     @Test
